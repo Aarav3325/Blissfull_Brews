@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:background="#DECBB7"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.OrderTrackingActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/metropolis_bold"
+        android:textColor="@color/black"
+        android:text="Track Order"
+        android:textSize="24sp"
+        android:layout_margin="16sp"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="25dp"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/statusText"
+            android:text="Waiting for Confirmation"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textAlignment="center"
+            android:fontFamily="@font/metropolis_semibold"/>
+            
+            <pl.droidsonroids.gif.GifImageView
+                android:layout_gravity="center"
+                android:foregroundGravity="center"
+                android:layout_width="150dp"
+                android:layout_height="120dp"
+                android:scaleType="centerCrop"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="14dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/statusImage"
+                android:src="@drawable/hourglass_unscreen"/>
+
+            <TextView
+                android:id="@+id/update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:fontFamily="@font/metropolis_semibold"
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:text="Esitmated time will be calculated after order is confirmed"/>
+
+        </LinearLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+   <androidx.cardview.widget.CardView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:cardBackgroundColor="#F19ED2"
+       android:layout_margin="16dp"
+       app:cardCornerRadius="20dp"
+       android:elevation="10dp">
+
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_margin="16dp"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:fontFamily="@font/metropolis_extrabold"
+               android:textColor="@color/white"
+               android:text="Order Id"
+               android:textSize="22sp"/>
+
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:id="@+id/statusOrderId"
+               android:fontFamily="@font/metropolis_extrabold"
+               android:textColor="@color/white"
+               android:gravity="end"
+               android:text="Order Id"
+               android:textSize="16sp"/>
+
+       </LinearLayout>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_marginTop="45dp"
+           android:layout_marginStart="16dp"
+           android:layout_marginEnd="16dp"
+           android:layout_marginBottom="16dp"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
+
+
+       <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+            android:id="@+id/statusName"
+               android:fontFamily="@font/metropolis_extrabold"
+               android:textColor="@color/white"
+               android:text="Aarav Halvadiya"
+               android:textSize="22sp"/>
+
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:id="@+id/statusPhoneNumber"
+               android:fontFamily="@font/metropolis_extrabold"
+               android:textColor="@color/white"
+               android:gravity="end"
+               android:text="95580XXXXX"
+               android:textSize="16sp"/>
+
+
+
+
+       </LinearLayout>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_marginTop="75dp"
+           android:layout_marginStart="16dp"
+           android:layout_marginEnd="16dp"
+           android:layout_marginBottom="16dp"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
+
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:fontFamily="@font/metropolis_extrabold"
+               android:textColor="@color/white"
+               android:text="Grand Total"
+               android:textSize="22sp"/>
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:id="@+id/statusGrandTotal"
+               android:fontFamily="@font/metropolis_extrabold"
+               android:textColor="@color/white"
+               android:gravity="end"
+               android:text="Amount"
+               android:textSize="16sp"/>
+
+
+
+       </LinearLayout>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_marginTop="105dp"
+           android:layout_marginStart="16dp"
+           android:layout_marginEnd="16dp"
+           android:layout_marginBottom="16dp"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
+
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:fontFamily="@font/metropolis_extrabold"
+               android:textColor="@color/white"
+               android:text="Paid Using Cash"
+               android:textSize="22sp"/>
+
+
+       </LinearLayout>
+
+
+   </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:background="@drawable/checkout_btn"
+        android:text="Order Summary"
+        android:textSize="18sp"
+        android:id="@+id/orderSummary"
+        android:fontFamily="@font/metropolis_semibold"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:layout_marginTop="30dp"
+        android:textAllCaps="false"/>
+
+</LinearLayout>

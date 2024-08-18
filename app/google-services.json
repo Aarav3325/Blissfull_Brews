@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1037942784085",
+    "project_id": "firestoredemo-f6608",
+    "storage_bucket": "firestoredemo-f6608.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1037942784085:android:dd8bbd30838bb36318d4dc",
+        "android_client_info": {
+          "package_name": "com.aarv.firestoredemo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATCT9LZXqVp0AcCRtN4jA7FTdX3H2RUXA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1037942784085:android:ffc8fd272978dfac18d4dc",
+        "android_client_info": {
+          "package_name": "com.example.cafeorderingapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATCT9LZXqVp0AcCRtN4jA7FTdX3H2RUXA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

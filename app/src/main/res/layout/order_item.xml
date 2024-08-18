@@ -1,0 +1,79 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_marginStart="16dp"
+    android:paddingBottom="10dp"
+    android:layout_marginEnd="16dp"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/orderItemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:fontFamily="@font/metropolis_bold"
+        android:layout_marginTop="8dp"
+        android:text="Item Name"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+    <TextView
+        android:layout_width="20dp"
+        android:layout_height="25dp"
+        android:id="@+id/orderItemCount"
+        android:textAlignment="center"
+        android:text="Item Count"
+        android:textSize="18sp"
+        android:fontFamily="@font/metropolis_bold"
+        android:layout_marginTop="8dp"
+        android:textColor="#4CAF50"
+        android:textStyle="bold"
+        android:background="@drawable/count"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/orderItemName"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="X Price"
+        android:textColor="@color/black"
+        android:id="@+id/price"
+        android:textSize="18sp"
+        android:fontFamily="@font/metropolis_bold"
+        android:textStyle="bold"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@id/orderItemCount"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price"
+        android:id="@+id/orderItemPrice"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/metropolis_bold"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:background="@drawable/border"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/orderItemPrice"
+        android:layout_height="1dp"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
