@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:background="#F9F5F6"
+    android:layout_height="match_parent"
+    tools:context=".CartActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_margin="14dp"
+        app:cardElevation="@dimen/cardview_default_elevation"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="14dp"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:id="@+id/cartRV"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:layout_height="match_parent"/>
+
+    </androidx.cardview.widget.CardView>
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textSize="24sp"-->
+<!--        android:id="@+id/totalAmt"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:text="Total Amount"/>-->
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        app:cardElevation="@dimen/cardview_default_elevation"
+        app:cardCornerRadius="14dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_marginTop="8dp"
+                android:layout_width="35dp"
+                android:padding="6dp"
+                android:layout_height="35dp"
+                android:src="@drawable/bill"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bill Summary"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:padding="2dp"
+                android:textSize="22sp"/>
+
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginTop="55dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_marginTop="4dp"
+                android:layout_width="35dp"
+                android:padding="8dp"
+                android:layout_height="35dp"
+                android:src="@drawable/bag"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Item Total"
+                android:gravity="start"
+                android:textStyle="normal"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp"
+                android:padding="4dp"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Price"
+                android:id="@+id/itemTotal"
+                android:textStyle="normal"
+                android:textColor="@color/black"
+                android:gravity="end"
+                android:layout_marginTop="8dp"
+                android:padding="4dp"
+                android:textSize="16sp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="95dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_marginTop="8dp"
+                android:layout_width="35dp"
+                android:padding="6dp"
+                android:layout_height="35dp"
+                android:src="@drawable/invoice"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GST &amp; Service Charges"
+                android:gravity="start"
+                android:textStyle="normal"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp"
+                android:padding="4dp"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Price"
+                android:textStyle="normal"
+                android:id="@+id/gstTotal"
+                android:textColor="@color/black"
+                android:gravity="end"
+                android:layout_marginTop="8dp"
+                android:padding="4dp"
+                android:textSize="16sp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="135dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_marginTop="8dp"
+                android:layout_width="35dp"
+                android:padding="4dp"
+                android:layout_height="35dp"
+                android:src="@drawable/smartphone"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Platform Fee"
+                android:gravity="start"
+                android:textStyle="normal"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp"
+                android:padding="4dp"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Price"
+                android:textStyle="normal"
+                android:id="@+id/platformFee"
+                android:textColor="@color/black"
+                android:gravity="end"
+                android:layout_marginTop="8dp"
+                android:padding="4dp"
+                android:textSize="16sp"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="55dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/add"
+            android:layout_height="1dp"
+            android:background="@drawable/border"/>
+
+        <LinearLayout
+            android:layout_marginTop="190dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_width="match_parent"
+            android:paddingBottom="15dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Grand Total"
+                android:gravity="start"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp"
+                android:padding="4dp"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Price"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:gravity="end"
+                android:id="@+id/grandTotal"
+                android:layout_marginTop="8dp"
+                android:padding="4dp"
+                android:textSize="18sp"/>
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Checkout"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/checkoutBtn"/>
+
+    </LinearLayout>
+
+
+</ScrollView>
