@@ -79,22 +79,27 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         holder.binding.setMenu(menuItem);
 
-
+        //Load item images using Glide Dependency
         Glide.with(context).load(menuItem.getImageUrl()).into(holder.binding.image);
 
+        //
         FirebaseCart firebaseCart1 = new FirebaseCart(menuItem.getItemName(), menuItem.getItemPrice(), menuItem.getCount(), menuItem.getItemId());
         Log.i("MYTAG", "" + firebaseCartArrayList.contains(firebaseCart1));
 
 
+        //Check if cart is empty or not
         if (!firebaseCartArrayList.isEmpty()) {
 
+            //If cart is not empty then update item counts from firebaseCartList
             for (FirebaseCart firebaseCart : firebaseCartArrayList) {
+                //Check if item is present in art or not
                 if (menuItem.getItemId().equals(firebaseCart.getCartItemId())) {
                     Log.i("MYTAG", "" + menuItem.getItemId() + " " + firebaseCart.getCartItemCount());
                     holder.binding.add.setText("" + firebaseCart.getCartItemCount());
                     holder.binding.addItem.setVisibility(View.VISIBLE);
                     holder.binding.removeItem.setVisibility(View.VISIBLE);
 
+                    // Add item count
                     holder.binding.addItem.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -113,6 +118,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                         }
                     });
 
+                    // Remove item count
                     holder.binding.removeItem.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -139,8 +145,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                     });
 
                 } else {
+                        // For items that are not present in cart
 
-
+                        // Add item to cart
                         holder.binding.add.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -175,6 +182,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
 
         } else {
+
+            // When cart is empty
             holder.binding.add.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

@@ -61,6 +61,7 @@ public class SignUpActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
 
+        //Check is user is already logged in
         if(firebaseUser != null){
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
         }
@@ -80,9 +81,8 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
+    //Register user
     private void createAccount() {
-
-
 
         String name = signUpName.getText().toString().trim();
         String email = signUpEmail.getText().toString().trim();

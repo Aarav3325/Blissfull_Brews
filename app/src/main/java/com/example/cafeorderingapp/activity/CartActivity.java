@@ -109,6 +109,7 @@ public class CartActivity extends AppCompatActivity {
 
         //String uniqueKey = databaseReference.push().getKey();
 
+        //Fetching cart items from Firebase RTDB
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -119,12 +120,15 @@ public class CartActivity extends AppCompatActivity {
                     cartArrayList.add(firebaseCart);
                 }
 
+                //Check if Cart is Empty or not
                 if(cartArrayList.isEmpty()){
                     findViewById(R.id.main).setVisibility(View.GONE);
                     findViewById(R.id.emptyCart).setVisibility(View.VISIBLE);
                 }
+                //Notify RV for Dataset changes
                 cartAdapter.notifyDataSetChanged();
 
+                //Calculate total
                 long total = 0;
                 for (FirebaseCart cart : cartArrayList) {
                     int price = cart.getCartItemPrice();
@@ -146,7 +150,8 @@ public class CartActivity extends AppCompatActivity {
                 tvPlatformFee.setText("₹" + platformFee);
                 tvGrandTotal.setText("₹" + grandTotal);
 
-                                ArrayList<FirebaseOrder> orderArrayList = new ArrayList<>();
+                //Order items list
+                ArrayList<FirebaseOrder> orderArrayList = new ArrayList<>();
 
 
 
@@ -160,20 +165,24 @@ public class CartActivity extends AppCompatActivity {
                         progressDialog = new ProgressDialog(CartActivity.this);
                         progressDialog.setMessage("Processing Order");
                         progressDialog.show();
+                        //Making order object from cart objects
                         for (FirebaseCart cart : cartArrayList){
                              FirebaseOrder firebaseOrder = new FirebaseOrder(cart.getCartItemName(), cart.getCartItemPrice(), cart.getCartItemCount());
                              orderArrayList.add(firebaseOrder);
 
                         }
 
+                        //Order object that is needed to push to Firebase RTDB
                         Order order = new Order(orderId, finalTotal1, orderArrayList, new Date().toString());
 
 
+                        //Pushing order object
                         reference.child(uniqueKey).setValue(order).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
                                 progressDialog.dismiss();
 
+                                //Passing data to OrderTrackingActivity
                                 Intent intent = new Intent(CartActivity.this, OrderTrackingActivity.class);
                                 intent.putExtra("name", etName.getText().toString());
                                 intent.putExtra("phone", etPhone.getText().toString());
@@ -183,6 +192,7 @@ public class CartActivity extends AppCompatActivity {
                                 intent.putExtra("platformFee", platformFee);
                                 startActivity(intent);
 
+                                // Remove cart items once the order is placed
                                 databaseReference.removeValue();
 
 
@@ -190,6 +200,7 @@ public class CartActivity extends AppCompatActivity {
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
+
                                 progressDialog.dismiss();
                             }
                         });
@@ -212,8 +223,10 @@ public class CartActivity extends AppCompatActivity {
             }
         });
 
+
         uniqueKeys = new ArrayList<>();
 
+        //Fetch UniqueKeys
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

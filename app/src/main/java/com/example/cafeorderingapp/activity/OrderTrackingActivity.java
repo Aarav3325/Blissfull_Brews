@@ -90,6 +90,7 @@ public class OrderTrackingActivity extends AppCompatActivity {
 
         DatabaseReference databaseReference = firebaseDatabase.getReference().child("Orders").child(firebaseUser).child(uniqueKey);
 
+        //Update order status and display order details
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

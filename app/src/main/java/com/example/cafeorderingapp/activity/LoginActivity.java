@@ -48,8 +48,10 @@ public class LoginActivity extends AppCompatActivity {
 
 
         firebaseAuth = FirebaseAuth.getInstance();
+        //Get current user
         firebaseUser = firebaseAuth.getCurrentUser();
 
+        //Check if user is already logged in
         if(firebaseUser != null && firebaseAuth != null){
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
         }

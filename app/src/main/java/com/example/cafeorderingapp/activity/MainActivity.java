@@ -87,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
 //        pagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), getLifecycle());
 //        //pagerAdapter.addFragment(new FirstFragment());
 //        viewPager2.setAdapter(pagerAdapter);
+
+        //SignOut user
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -103,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
             firebaseDatabase = FirebaseDatabase.getInstance();
             databaseReference = firebaseDatabase.getReference().child("Menu");
 
+            //Fetch Menu items from Firebase RTDB
             databaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -119,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }
 
+                    //Loader logic
                     if(!menuItems.isEmpty()){
                         recyclerView.setVisibility(View.VISIBLE);
                         banner.setVisibility(View.VISIBLE);
@@ -139,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
 
             DatabaseReference reference = firebaseDatabase.getReference("Cart").child(firebaseAuth.getCurrentUser().getUid());
 
+            //User data fetch and upload logic
             if(getIntent().getBooleanExtra("flag", false)){
                 DatabaseReference userReference = firebaseDatabase.getReference().child("User");
                 User user1 = new User(getIntent().getStringExtra("username"), getIntent().getStringExtra("email"), firebaseAuth.getCurrentUser().getUid());
@@ -146,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
+            //Fetch Cart items from Firebase RTDB in order to update item count values in real time
             reference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {

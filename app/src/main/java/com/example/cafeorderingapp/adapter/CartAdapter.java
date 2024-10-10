@@ -51,25 +51,31 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         FirebaseCart cart = cartArrayList.get(position);
         Log.i("CART", cart.getCartItemName() + cart.getCartItemCount());
 
+        //Increase item count
+
         holder.cartItemBinding.addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int cartItemCount = cart.getCartItemCount();
                 cartItemCount++;
                 cart.setCartItemCount(cartItemCount);
+                //Convert to Map in order to update child in Firebase RTDB
                 Map<String, Object> hashmap = cart.toMap();
                 databaseReference.child(userID).child(uniqueKeys.get(holder.getAdapterPosition())).updateChildren(hashmap);
             }
         });
 
+        //Decrease item count
         holder.cartItemBinding.removeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int cartItemCount = cart.getCartItemCount();
                 cartItemCount--;
                 cart.setCartItemCount(cartItemCount);
+                //Convert to Map in order to update child in Firebase RTDB
                 Map<String, Object> hashmap = cart.toMap();
                 if(cartItemCount == 0){
+                    //If count is 0 then remove item
                     databaseReference.child(userID).child(uniqueKeys.get(holder.getAdapterPosition())).removeValue();
                 }
                 else {
@@ -134,6 +140,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     public static class CartViewHolder extends RecyclerView.ViewHolder {
         CartItemBinding cartItemBinding;
 
+        
         public CartViewHolder(CartItemBinding cartItemBinding) {
             super(cartItemBinding.getRoot());
             this.cartItemBinding = cartItemBinding;
